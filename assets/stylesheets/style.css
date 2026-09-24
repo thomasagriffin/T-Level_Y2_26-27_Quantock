@@ -1,3 +1,51 @@
-.red {
-    color: red;
+/* Starting point, build on this */
+*, *::before, *::after { box-sizing: border-box; }
+ 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222222;
+  margin: 0;
+}
+ 
+form label:not(.form-check-label) {
+  display: block;
+  margin-bottom: 0.25rem;z
+}
+
+.form-group, fieldset {
+    margin-bottom: 1rem;
+}
+
+form {
+    padding: 2rem;
+    margin: auto;
+}
+
+form input:not([type=radio], [type=checkbox]), form select, form fieldset {
+    width: 25rem;
+    padding: .5rem 1rem;
+    max-width: 100%;
+    border: 1px solid black;
+
+    &:focus {
+        background-color: #333;
+        color: white;
+    }
+}
+form fieldset {
+    padding: 3rem;
+}
+
+form button[type=submit] {
+    outline: none;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 2rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #515151;
+
+    }
 }
