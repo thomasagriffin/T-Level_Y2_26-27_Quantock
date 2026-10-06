@@ -1,15 +1,59 @@
-/* Starting point, build on this */
+/*
+
+Variables and reset
+
+*/
+
+:root {
+    --text-color: #222;
+    --accent-color: #333;
+    --button-hover: #515151;
+    --white: #fff;
+
+    --form-button-padding: 1rem 2rem;
+    --form-padding: 2rem;
+    --form-fieldset-padding: 3rem;
+    
+    --main-max-width: 70rem;
+    --main-line-height: 1.5;
+
+    --card-spacing: 2rem;
+    --card-border-width: 1px;
+}
+
 *, *::before, *::after { box-sizing: border-box; }
  
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: #222222;
+  color: var(--text-color);
   margin: 0;
 }
+
+main {
+    line-height: var(--main-line-height);
+    max-width: var(--main-max-width);
+    margin: auto;
+}
+
+a:link    { color: #1f5c3a; }
+a:visited { color: #4a3a6b; }
+a:hover   { color: #14402a; text-decoration: none; }
+a:focus-visible {
+  outline: 3px solid #1f5c3a;
+  outline-offset: 2px;
+}
+a:active  { color: #0d2a1b; }
+
+
+/*
+
+Enquiry form styles 
+
+*/
  
 form label:not(.form-check-label) {
   display: block;
-  margin-bottom: 0.25rem;z
+  margin-bottom: 0.25rem;
 }
 
 .form-group, fieldset {
@@ -17,7 +61,7 @@ form label:not(.form-check-label) {
 }
 
 form {
-    padding: 2rem;
+    padding: var(--form-padding);
     margin: auto;
 }
 
@@ -25,27 +69,58 @@ form input:not([type=radio], [type=checkbox]), form select, form fieldset {
     width: 25rem;
     padding: .5rem 1rem;
     max-width: 100%;
-    border: 1px solid black;
-
-    &:focus {
-        background-color: #333;
-        color: white;
-    }
+    border: 1px solid var(--text-color);
 }
+
+input:focus {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
 form fieldset {
-    padding: 3rem;
+    padding: var(--form-fieldset-padding);
 }
 
 form button[type=submit] {
     outline: none;
     border: none;
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 2rem;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: var(--form-button-padding);
     cursor: pointer;
 
     &:hover {
-        background-color: #515151;
+        background-color: var(--button-hover);
 
     }
 }
+
+/* 
+
+Fleet styles
+
+*/
+
+.fleet {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-md, 1.5rem);
+
+  h2 {
+    grid-column: 1 / -1;
+  }
+}
+ 
+.card {
+  display: flex;
+  flex-direction: column;
+  border: var(--card-border-width) solid var(--line, #ddd);
+  padding: var(--card-spacing);
+
+  img {
+    width: 100%;
+  }
+}
+ 
+.card .price { margin-top: auto; font-size: 1.5rem; }
